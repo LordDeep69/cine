@@ -24,7 +24,7 @@ export const getMovies = async () => {
     {
         const {data} = await axios.get(URL_API_ALL);
         
-        return data;    
+        return data.results;    
     } 
     catch (error) 
     {

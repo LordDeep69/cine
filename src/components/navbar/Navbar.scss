@@ -41,6 +41,12 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        cursor: pointer;
+        &:hover
+        {
+            background: rgb(6, 107, 224);
+
+        }
 
         &:nth-child(3) {
             width: 13vw;
