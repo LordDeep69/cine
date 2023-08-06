@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './navbar.scss';
+import { useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
 
@@ -34,6 +35,12 @@ const Navbar = () => {
     setLocationOptionsOpen(false); // Cerrar el menú de ubicación si está abierto
   };
 
+  const navigate = useNavigate();
+  const handleClickCategory = (route) => 
+  {
+    navigate(route);
+  };
+
 
 
   return (
@@ -45,17 +52,17 @@ const Navbar = () => {
       </div>
       <div className="categories">
         {/* Elemento 2: Categorías */}
-        <div className="container">
+        <div onClick={() => handleClickCategory ('Category/28')}  className="container Action">
           <span className="text">Acción</span>
         </div>
-        <div className="container">
+        <div onClick={() => handleClickCategory ('Category/27')}  className="container Terror">
           <span className="text">Terror</span>
         </div>
-        <div className="container">
+        <div onClick={() => handleClickCategory ('Category/878')}   className="container Fiction">
           <span className="text">Ciencia Ficción</span>
         </div>
-        <div className="container">
-          <span className="text">Comedia</span>
+        <div  onClick={() => handleClickCategory ('Category/35')}  className="container Comedia">
+          <span   className="text">Comedia</span>
         </div>
         {/* Repite este bloque para cada categoría */}
       </div>
