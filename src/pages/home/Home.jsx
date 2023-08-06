@@ -6,22 +6,19 @@ const Home = () => {
 
   const navigate = useNavigate();
 
-  const handleDetail = () => 
+  const handleNavigate = (route) => 
   {
-    navigate('/Detail');
+    navigate(route);
   }
-  const handlePayment = () => 
-  {
-    navigate('/Payment');
-  }
+
 
 
   return (
     <>
 
         <div >Bienvenido a Home. </div>
-        <button onClick = {handleDetail} className = 'btnD'> Detalles</button>
-        <button onClick={handlePayment} className = 'btnP'> Pago</button>
+        <button onClick = {()=>handleNavigate('/Detail')} className = 'btnD'> Detalles</button>
+        <button onClick={()=>handleNavigate('/Payment')} className = 'btnP'> Pago</button>
 
         
     
