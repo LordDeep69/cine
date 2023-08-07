@@ -1,15 +1,32 @@
 import React from 'react';
 import './movie.scss';
+import { useNavigate } from 'react-router-dom';
+import { useLocationDate } from '../../context/LocationDateContext';
 
-const Movie = ({ image, title, titleEnglish, estreno, time, genre }) => {
+const Movie = ({ image, title, titleEnglish, estreno, time, genre, id }) => {
   const genreNames = genre.map((item) => item.name).join(' ');
   const imageComplete = `https://image.tmdb.org/t/p/original/${image}`;
+  const {idLocation, idDate } = useLocationDate(); // Usa el hook del contexto
+
+
+  const navigate = useNavigate();
+
+  const handleClickDetailMovie = (id) => 
+    {        
+        if (idLocation && idDate)
+        {
+            
+            navigate(id);
+
+        }
+
+    } 
 
 
   return (
-    <article className='infoMovie'>
+    <article  onClick={() => handleClickDetailMovie(`/Movie/${id}`)}  className='infoMovie'>
       <figure>
-        <img className='infoMovie__img' src={imageComplete} alt="movieImage" style={{ objectFit: 'cover', width: '100%', height: '100%' }}  />
+        <img className='infoMovie__img' src={imageComplete} alt="movieImage"  />
       </figure>
       <span className='infoMovie__description'>{title}. <br /></span>
       <span className='infoMovie__title'>

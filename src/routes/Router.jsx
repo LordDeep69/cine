@@ -4,27 +4,33 @@ import Home from '../pages/home/Home';
 import Header from '../components/header/Header';
 import MovieDetail from '../pages/movieDetail/MovieDetail';
 import PaymentMovie from '../pages/paymentMovie/PaymentMovie';
+import { LocationDateProvider } from '../context/LocationDateContext';
 
 const Router = () => {
   return (
     
     <BrowserRouter>
-         <Header/>
 
-        <Routes>
-            
-            <Route path='/'>
-              <Route path='/' element={<Home/>}/>
-              <Route path='Detail' element={<MovieDetail/>}/>
-              <Route path='Payment' element={<PaymentMovie/>}/>
-              <Route path='Category/:idCategorie' element={<Home/>}/>
+    <LocationDateProvider>
+            <Header/>
+            <Routes>
+                
+                <Route path='/'>
+                  <Route path='/' element={<Home/>}/>
+                  <Route path='Detail' element={<MovieDetail/>}/>
+                  <Route path='Payment' element={<PaymentMovie/>}/>
+                  <Route path='Category/:idCategorie' element={<Home/>}/>
+                  <Route path='Movie/:idMovie' element={<MovieDetail/>}/>
 
 
-                 
-            </Route>
-          
 
-        </Routes>
+                    
+                </Route>
+              
+
+            </Routes>
+    </LocationDateProvider>
+
     
     </BrowserRouter>
     

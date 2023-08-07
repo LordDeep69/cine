@@ -3,12 +3,35 @@
 {
     width: 293px;
     border-radius: 20px;
+    cursor: pointer;
+    &:hover
+    {
+        width: 313px;
+        height: 455px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 1);
+
+        &__img
+        {
+            width: 313px;
+            height: 455px;
+    
+        }
+
+    }
+    
 
     &__img{
         
         width: 100%;
         height: 435px;
         border-radius: 6px;
+
+        &:hover
+        {
+            width: 313px;
+            height: 455px;
+    
+        }
     }
 
     &__description
