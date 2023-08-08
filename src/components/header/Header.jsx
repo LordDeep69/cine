@@ -9,8 +9,6 @@ const Header = () => {
 
               <div className='header__nav'> <Navbar/>  </div>
               <div className='header__car'>   <Carousel/>   </div>
-             
-
             </div>
   )
 }

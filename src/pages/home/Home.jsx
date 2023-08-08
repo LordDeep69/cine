@@ -28,12 +28,14 @@ const Home = () => {
         data.map(async (movie) => {
           const movieDetail = await getMovie(movie.id);
           return {
-            image: movie.backdrop_path,
-            title: movie.title,
-            titleEnglish: movie.original_title,
-            estreno: movie.release_date,
-            time: movieDetail.runtime,
-            genres: movieDetail.genres,
+                  id: movie.id,
+                  image: movie.poster_path,
+                  title: movie.title,
+                  titleEnglish: movie.original_title,
+                  estreno: movie.release_date,
+                  time: movieDetail.runtime,
+                  genres: movieDetail.genres,
+                  description: movieDetail.overview
           };
         })
       );
@@ -68,6 +70,8 @@ const Home = () => {
             estreno={movie.estreno}
             time={movie.time}
             genre={movie.genres}
+            id = {movie.id}
+            description = {movie.description}
           />
         ))}
 

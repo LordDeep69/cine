@@ -1,0 +1,319 @@
+
+
+.detail
+{
+    margin-top: 7vw;
+    display: flex;
+
+    .container 
+    {
+        padding: 2px;
+        margin-left: 6vw;
+        margin-right: 6vw;
+
+        display: flex;
+        justify-content: space-between;
+
+        @media screen and (max-width: 468px) 
+        {
+            flex-direction: column;
+
+  
+        }
+
+        &__left
+        {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+
+            .up
+            {
+                display: flex;
+                .figure
+                {
+                    width: 14vw;
+                    height: auto;
+
+                    img 
+                    {   
+                        width: 11vw; 
+                        height: auto; 
+                        border-radius: 6px; /* border-m */
+                        
+                    }
+                }
+
+                .articleMovie 
+                {
+                    display: flex;
+                    flex-direction: column;
+                    margin-left: 4vw;
+
+                    .title
+                    {  
+    
+                    font-family: Epilogue; 
+                    font-size: 1.7vw; 
+                    line-height: 2.8vw; 
+                    color: #171A1FFF; /* neutral-900 */
+                    margin-bottom: 0.8vw;
+                    
+                }
+
+                .titleDate 
+                {  
+                    font-family: Inter; 
+                    font-size: 1.15vw; 
+                    line-height: 2.3vw; 
+                    color: #303236FF;
+                    margin-bottom: 0.8vw;
+                }
+
+                .dateMovie
+                {
+                    display: flex;
+                    margin-bottom: 0.85vw;
+                    gap: 0.5vw;
+                    .button {
+                        width: 2.9vw; 
+                        height: 3.1vw; 
+                        padding: 0 12px; 
+                        display: flex; 
+                        align-items: center; 
+                        justify-content: center; 
+                        font-family: Roboto; /* Body */
+                        font-size: 2vw; 
+                        line-height: 40px; 
+                        color: #FFFFFFFF; /* white */
+                        background: #47494FFF; 
+                        opacity: 1; 
+                        border: none; 
+                        border-radius: 0.4vw; /* border-m */
+
+                        &:hover {
+                            color: #FFFFFFFF; /* white */
+                            background: #47494FFF; 
+
+                            &:active {
+                                color: #FFFFFFFF; /* white */
+                                background: #47494FFF; 
+                                }
+                            }
+
+                            .button:disabled {
+                                opacity: 0.4; 
+                            }
+                        }
+
+                        .Time
+                        {
+
+                            height: 3.1vw; 
+                            padding: 0 1.1vw; 
+                            display: flex; 
+                            align-items: center; 
+                            justify-content: center; 
+                            font-family: Roboto; /* Body */
+                            font-size: 1.2vw; 
+                            line-height: 26px; 
+                            color: #FFFFFFFF; /* white */
+                            background: #171A1FFF; /* neutral-900 */
+                            opacity: 1; 
+                            border: none; 
+                            border-radius: 6px; /* border-m */
+                            
+                            /* Hover */
+                            &:hover {
+                                        color: #FFFFFFFF; /* white */
+                                        background: #262A33FF; /* neutral-750 */
+                            }
+
+                            
+                        }
+
+
+                        .genres 
+                        {
+                            height: 3.1vw; 
+                            padding: 0 16px; 
+                            display: flex; 
+                            align-items: center; 
+                            justify-content: center; 
+                            font-family: Roboto; /* Body */
+                            font-size: 1.2vw; 
+                            line-height: 26px; 
+                            color: #FFFFFFFF; /* white */
+                            background: #000667FF; 
+                            opacity: 1; 
+                            border: none; 
+                            border-radius: 6px; /* border-m */
+
+                            &:hover {
+                                color: #FFFFFFFF; /* white */
+                                background: #000667FF; 
+                              }
+                        }
+
+
+                }
+            }
+            }
+
+
+            .Trailer
+            {
+
+                margin-top: 2.7vw;
+
+                .video
+                {
+                    width: 45vw; 
+                    height: 25vw; 
+                    border-radius: 6px; /* border-m */
+                }
+            }
+
+
+            .description
+            {
+                display: flex;
+                flex-direction: column;
+                margin-top: 1.5vw;
+
+                .Synopsis
+                {
+                    font-family: Inter; 
+                    font-size: 1.2vw; 
+                    line-height: 28px; 
+                    color: #171A1FFF; /* neutral-900 */
+                }
+                .descriptionText 
+                {
+                    width: 45vw; 
+                    font-family: Inter; 
+                    font-size: 1vw; 
+                    line-height: 28px; 
+                    color: #323743FF; /* neutral-700 */
+                }
+            }
+
+        }
+
+        &__right
+        {
+
+            width: 37.5vw; 
+            height: 23.1vw; 
+            background: #F4F4F400; 
+            border-radius: 6px; /* border-m */
+            box-shadow: 0px 8px 17px #171a1f, 0px 0px 2px #171a1f; /* shadow-l */
+            padding: 1.75vw;
+            margin-left: 7vw;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75vw;
+
+            .date
+            {
+                font-family: Epilogue; 
+                height: 3vw;
+                font-size: 1.7vw; 
+                line-height: 36px; 
+                color: #171A1FFF; /* neutral-900 */
+            }
+
+            .choose 
+            {
+                height: 3vw;
+                font-family: Roboto; /* Body */
+                font-size: 1.35vw; 
+                line-height: 28px; 
+                color: #303236FF; 
+            }
+
+            .Theater 
+            {
+                font-family: Inter; 
+                font-size: 1.35vw; 
+                line-height: 28px; 
+                color: #171A1FFF; /* neutral-900 */
+                height: 3vw;
+
+            }
+
+            .hours
+            {
+                display: flex;
+                gap:0.35vw;
+                cursor: pointer;
+
+                .hour 
+                {
+                    height: 2.4vw; 
+                    padding: 0 0.9vw; 
+                    display: flex; 
+                    align-items: center; 
+                    justify-content: center; 
+                    font-family: Roboto; /* Body */
+                    font-size: 1.35vw; 
+                    line-height: 28px; 
+                    color: #171A1FFF; /* neutral-900 */
+                    background: #FFFFFFFF; /* white */
+                    opacity: 1; 
+                    border-radius: 4px; /* border-s */
+                    border-width: 1px; 
+                    border-color: #171A1FFF; /* neutral-900 */
+                    border-style: solid;
+
+
+
+
+                }
+
+                .selected {
+                    background-color: black;
+                    color: white; /* Cambia el color del texto para que sea legible en fondo negro */
+                  }
+
+                
+            }
+
+            .select 
+            {
+                width: 33.5vw; 
+                height: 4.5vw; 
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                align-self: center;
+                align-content: center;
+                text-align: center;
+                margin-top: 4.5vw;
+                background: #C2C3D0FF; 
+                border-radius: 28px; 
+                box-shadow: 0px 0px 1px #171a1f, 0px 0px 2px #171a1f; /* shadow-xs */
+
+
+                .text
+                {
+
+                    text-align: center;
+                    font-family: Inter; 
+                    font-size: 1.2vw; 
+                    line-height: 26px; 
+                    color: black; /* white */
+
+                }
+
+
+                  
+            }
+            .active {
+                cursor: pointer;
+                background: rgb(24, 36, 212);
+              }
+        }
+    }
+}
