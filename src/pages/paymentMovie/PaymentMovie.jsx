@@ -1,8 +1,12 @@
 import React from 'react'
 import './paymentMovie.scss'
-const PaymentMovie = () => {
+import { useLocationDate } from '../../context/LocationDateContext';
+const PaymentMovie = () => 
+{
+  const { idLocation, idDate, movieNow, ticketNow} = useLocationDate();
+
   return (
-    <div>PaymentMovie</div>
+    <div>Hora Seleccionada: {ticketNow.time} </div>
   )
 }
 

@@ -35,6 +35,7 @@ const Home = () => {
                   estreno: movie.release_date,
                   time: movieDetail.runtime,
                   genres: movieDetail.genres,
+                  description: movieDetail.overview
           };
         })
       );
@@ -70,6 +71,7 @@ const Home = () => {
             time={movie.time}
             genre={movie.genres}
             id = {movie.id}
+            description = {movie.description}
           />
         ))}
 
