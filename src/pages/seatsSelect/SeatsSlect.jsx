@@ -5,10 +5,14 @@ import { useNavigate } from 'react-router-dom';
 import Seat from '../../components/seat/Seat';
 const SeatsSlect = () => {
 
-    const { seatNow, movieNow, ticketNow, selectedLocation, selectedDate, total, boleto, setBoletos } = useLocationDate();
+    const { seatNow, setSeatNow, movieNow, ticketNow, selectedLocation, selectedDate, total, boleto, setBoletos, idRoom, numberTicketAdult, numberTicketChildren, numberTicketOldman, beforenewSeats, setBeforeNewSeats, selectedSeats, setSelectedSeats } = useLocationDate();
     const navigate = useNavigate();
     const [seatColors, setSeatColors] = useState({});
     const [numberSeat, setNumberSeat] = useState(0);
+    const [newSeats, setNewSeats] = useState(seatNow);
+
+    
+
 
     
 
@@ -16,8 +20,11 @@ const SeatsSlect = () => {
     const handleNextClick = () => {
         if (total > 0) {  // Navega solo si al menos un ticket ha sido seleccionado
         
-              navigate('/Seat');
-              console.log(seatNow);
+              setBeforeNewSeats(newSeats);
+              
+              navigate('/Form')
+
+              
         }
       };
       const handleSeatClick = (row, number) => {
@@ -38,6 +45,24 @@ const SeatsSlect = () => {
                   {
                     newColor = undefined;
                     setBoletos(boleto+1);
+                    setNewSeats(prevSeatSelected => {
+                        const updatedRow = prevSeatSelected[row].filter(seatNumber => seatNumber !== number);
+                        return {
+                          ...prevSeatSelected,
+                          [row]: updatedRow
+                        };
+                      });
+
+
+                      setSelectedSeats(prevSelectedSeats =>
+                        prevSelectedSeats.filter(seat => seat.row !== row || seat.number !== number)
+                      );
+                      console.log('KKKKKKKKKKKKKKKKKKKKKKKKK');
+                      console.log('KKKKKKKKKKKKKKKKKKKKKKKKK');
+                      console.log(newSeats)
+                      console.log('KKKKKKKKKKKKKKKKKKKKKKKKK');
+                      console.log('KKKKKKKKKKKKKKKKKKKKKKKKK');
+                      
                   } 
                   else 
                   {
@@ -45,6 +70,13 @@ const SeatsSlect = () => {
                     {
                         newColor = 'orange';
                         setBoletos(boleto-1);
+                        setNewSeats(prevSeatSelected => ({
+                            ...prevSeatSelected,
+                            [row]: [...prevSeatSelected[row], number]
+                          }));
+
+                          setSelectedSeats(prevSelectedSeats => [...prevSelectedSeats, { row, number }]);
+
                     }
                   }
             
@@ -57,6 +89,10 @@ const SeatsSlect = () => {
                   };
                 });
               }
+
+
+
+
         
       };
       
@@ -185,6 +221,13 @@ const SeatsSlect = () => {
                 <span><b>Complejo</b>: {selectedLocation}</span>
                 <span><b>Fecha</b>: {selectedDate}</span>
                 <span><b>Función</b>: {ticketNow.name}</span>
+                <span><b>Boletos</b>: {numberTicketAdult>0 && (<span> {numberTicketAdult} Adultos </span>)}  {numberTicketChildren>0 && (<span> {numberTicketChildren} Niños </span>)}  {numberTicketOldman>0 && (<span> {numberTicketOldman} Edad Avanzada </span>)} </span>                
+                
+                <span><b>Número de la Sala</b>: {idRoom}</span>
+
+
+                <span>Asientos: {selectedSeats.map(seat => `${seat.row}${seat.number}`).join(', ')}</span>
+
                 </div>
             </div>
             <p className="resumen__p">Se realizará un cargo por servicio por cada boleto dentro de la orden.</p>

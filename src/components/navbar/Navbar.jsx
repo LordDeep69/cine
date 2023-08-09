@@ -5,7 +5,7 @@ import { useLocationDate } from '../../context/LocationDateContext';
 
 const Navbar = () => {
 
- 
+  
   const { selectedLocation, setSelectedLocation, selectedDate, setSelectedDate, setIdLocation, setIdDate } = useLocationDate(); // Usa el hook del contexto
   const [isLocationOptionsOpen, setLocationOptionsOpen] = useState(false); // Agrega esta línea
 
@@ -181,7 +181,7 @@ const Navbar = () => {
       </div>
 
       <div>
-        <figure className='figureUser'>
+        <figure  className='figureUser'>
           <img className = 'imgUser' src='https://www.pngkit.com/png/full/88-885453_login-white-on-clear-user-icon.png' alt="user" />
         </figure>
       </div>

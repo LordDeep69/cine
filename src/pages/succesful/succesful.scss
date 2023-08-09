@@ -1,0 +1,21 @@
+
+
+.Final
+{
+    display: flex;
+    flex-direction: column;
+    gap: 4vw;
+
+    .InfoCom
+    {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .DataCompra
+    {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5vw;
+    }
+}
