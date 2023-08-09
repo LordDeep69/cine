@@ -6,7 +6,7 @@ import { useLocationDate } from '../../context/LocationDateContext';
 import { getVideoMovie } from '../../services/getVideoMovie';
 
 const MovieDetail = () => {
-  const { idLocation, idDate, movieNow, selectedDate, selectedLocation, setTicketNow} = useLocationDate();
+  const { idLocation, idDate, movieNow, selectedDate, selectedLocation, setTicketNow, setMovieNow} = useLocationDate();
   const { idMovie } = useParams();
   const [desiredRoomTimes, setDesiredRoomTimes] = useState([]);
   const [videoMovie, setVideoMovie] = useState("");
@@ -31,6 +31,14 @@ const MovieDetail = () => {
 
             if (desiredRoom) {
               setDesiredRoomTimes(desiredRoom.times);
+              console.log('TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT');
+              console.log('TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT');
+              console.log('TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT');
+              console.log(desiredRoom.times[1].seats);
+              console.log('TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT');
+              console.log('TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT');
+              console.log('TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT');
+
             } else {
               console.log('Sala no encontrada');
             }
@@ -69,7 +77,7 @@ const MovieDetail = () => {
       setSelectedHour(null); // Desactiva el hour si se hace clic en él nuevamente
     } else {
       setSelectedHour(hour); // Establece el hour seleccionado
-      setTicketNow({time: id})
+      setTicketNow({time: id, name:hour})
     }
   };
 
