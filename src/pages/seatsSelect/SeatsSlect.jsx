@@ -1,12 +1,18 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './seatsSlect.scss'
 import { useLocationDate } from '../../context/LocationDateContext';
 import { useNavigate } from 'react-router-dom';
 import Seat from '../../components/seat/Seat';
 const SeatsSlect = () => {
 
-    const { seatNow, movieNow, ticketNow, selectedLocation, selectedDate, total } = useLocationDate();
+    const { seatNow, movieNow, ticketNow, selectedLocation, selectedDate, total, boleto, setBoletos } = useLocationDate();
     const navigate = useNavigate();
+    const [seatColors, setSeatColors] = useState({});
+    const [numberSeat, setNumberSeat] = useState(0);
+
+    
+
+    console.log(seatNow)
     const handleNextClick = () => {
         if (total > 0) {  // Navega solo si al menos un ticket ha sido seleccionado
         
@@ -14,6 +20,48 @@ const SeatsSlect = () => {
               console.log(seatNow);
         }
       };
+      const handleSeatClick = (row, number) => {
+        const originalColor = seatNow[row].includes(number) ? 'red' : 'blue';
+      
+
+
+            if (originalColor === 'blue') {
+                console.log(`Has dado click sobre el asiento ${number} de la fila ${row}`);
+            
+                setSeatColors(prevSeatColors => {
+                  const currentColor = prevSeatColors[row] && prevSeatColors[row][number];
+                  let newColor;
+
+                  
+            
+                  if (currentColor === 'orange') 
+                  {
+                    newColor = undefined;
+                    setBoletos(boleto+1);
+                  } 
+                  else 
+                  {
+                    if(boleto)
+                    {
+                        newColor = 'orange';
+                        setBoletos(boleto-1);
+                    }
+                  }
+            
+                  return {
+                    ...prevSeatColors,
+                    [row]: {
+                      ...prevSeatColors[row],
+                      [number]: newColor
+                    }
+                  };
+                });
+              }
+        
+      };
+      
+
+      
 
 
 
@@ -55,9 +103,76 @@ const SeatsSlect = () => {
 
                 </div>
 
-                <div className='selectSeats__select'> 
-                        <Seat number={14} color={'blue'} />
+
+                <div className='selectSeats__select'>
+                    {Object.keys(seatNow).map((fila) => {
+                        const asientosOcupados = seatNow[fila];
+
+                        return (
+                        <div key={fila} className={`Fila ${fila}`}>
+                            {fila.localeCompare('F') == 0 && (<div className='filaF'> F </div>)}
+                            {Array.from({ length: 14 }, (_, index) => {
+                            const asientoNumero = index + 1;
+                            const color = seatColors[fila] && seatColors[fila][asientoNumero] ? seatColors[fila][asientoNumero] : (asientosOcupados.includes(asientoNumero) ? 'red' : 'blue');
+                            const number = asientosOcupados.includes(asientoNumero)
+                                ? asientoNumero
+                                : asientoNumero;
+
+                            if (number<=7) 
+                            {
+                                
+            
+                                    if (fila.localeCompare('F') !== 0) 
+                                    {
+                                        if (number!=1 ) 
+                                        
+                                        {
+                                            return (<div onClick={() => handleSeatClick (fila, number)} className={number==7 ? 'grupo1 last':'grupo1'}><span className='Name'><Seat key={asientoNumero} number={number} color={color} /> </span></div>); 
+
+                                        } 
+                                        else 
+                                        {
+                                            return (<div onClick={() => handleSeatClick (fila, number)}  className={number==7 ? 'grupo1 last':'grupo1'}><span className='Name'>{fila}<Seat key={asientoNumero} number={number} color={color} /> </span></div>); 
+
+                                        }
+                                    } 
+                                    else 
+                                    {
+                                        
+                                        if (number==1) 
+                                        {
+                                            return (<div onClick={() => handleSeatClick (fila, number)}  className='grupoF first'> <Seat key={asientoNumero} number={number} color={color} /></div>); 
+   
+                                        } 
+                                        else 
+                                        {
+                                            return (<div onClick={() => handleSeatClick (fila, number)}  className='grupoF'> <span className='Name'><Seat key={asientoNumero} number={number} color={color} /> </span> </div>); 
+                                        }
+                                   
+                                    }
+                                    
+
+                            } else 
+                            {
+
+                                 
+                                    if (fila.localeCompare('F') !== 0) 
+                                    {
+                                        return (<div onClick={() => handleSeatClick (fila, number)}  className='grupo2'> <Seat key={asientoNumero} number={number} color={color} /> </div>);                                    
+                                    } 
+                                    else 
+                                    {
+                                        
+                                    }
+
+                            }
+
+                            })}
+                        </div>
+                        );
+                    })}
                 </div>
+                
             </section>
             <section className="resumen">
             <h4 className="resumen__title">Resumen de Compra</h4>

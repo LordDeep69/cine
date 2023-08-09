@@ -16,7 +16,7 @@
         .seatsTitle 
         {
             font-family: Roboto; /* Body */
-            font-size: 24px; 
+            font-size: 1.8vw; 
             line-height: 36px; 
             color: #171A1FFF; /* neutral-900 */
         }
@@ -24,7 +24,7 @@
         .seatsInfo 
         {
             font-family: Roboto; /* Body */
-            font-size: 18px; 
+            font-size: 1.35vw; 
             line-height: 28px; 
             color: #303236FF; 
         }
@@ -32,23 +32,23 @@
         .options
         {
             display: flex;
-            gap: 40px;
+            gap: 3vw;
 
             .option
             {
                 display: flex;
                 align-content: center;
                 align-items: center;
-                gap: 5px;
+                gap: 0.4vw;
 
                 .material-symbols-outlined {
-                    width: 38px; 
-                    height: 38px; 
+                    width: 2.7vw; 
+                    height: 2.5vw; 
                     fill: #FCB831FF; /* warning-500 */
                     
                         position: relative;
                         font-family: 'Material Symbols Outlined';
-                        font-size: 30px; /* Ajusta el tamaño del ícono según tu diseño */
+                        font-size: 2.15vw; /* Ajusta el tamaño del ícono según tu diseño */
                         color: transparent; /* Hace el texto transparente para ocultarlo */
                 
                         &.yellow 
@@ -80,6 +80,11 @@
                 
                 
                       }
+
+                      p
+                      {
+                        font-size: 1.5vw;
+                      }
             }
         }
 
@@ -88,11 +93,88 @@
 
     &__select
     {
-        background-color: cadetblue;
+
         width: 80%;
         height: 75%;
         margin-top: 7vw;
-        display: flex;
+        
+
+        .Fila
+        {
+            display: flex;
+            margin-bottom: 2vw;
+
+
+            &.A, &.B,  &.C, &.D, &.E, &.F, &.G, &.H, &.I, &.J
+            {
+
+                
+                    .grupo1
+                    {
+
+
+                        &.last
+                        {
+                            margin-right: 50px;
+
+                        }
+
+                        &.G
+                        {
+                            display: flex;
+                            justify-content: end;
+                            align-content: end;
+                            align-self: flex-end;
+                        }
+
+                        .Name
+                        {
+                            display: flex;
+                            gap: 4px;
+                            align-items: center;
+                            font-size: 0.9vw;
+                        }
+
+
+
+
+                    }
+
+                    .grupoF
+                    {
+
+
+                        &.first 
+                        {
+                            margin-left: 64%;
+                        }
+
+                        .Name
+                        {
+                            width: 100%;
+                            background-color: re;
+                            display: flex;
+                            gap: 4px;
+                            align-items: center;
+                            font-size: 0.9vw;
+                            justify-content: space-between;
+                            
+                        }
+                        
+                    }
+
+
+                    .filaF
+                    {
+                        font-size: 0.9vw;
+                        align-items: center;
+                        align-self: center;
+                    }
+
+            }
+            
+
+        }
 
     }
 
