@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import './navbar.scss';
+import './Navbar.scss';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useLocationDate } from '../../context/LocationDateContext';
 
 const Navbar = () => {
 
-
+ 
   const { selectedLocation, setSelectedLocation, selectedDate, setSelectedDate, setIdLocation, setIdDate } = useLocationDate(); // Usa el hook del contexto
   const [isLocationOptionsOpen, setLocationOptionsOpen] = useState(false); // Agrega esta línea
 
