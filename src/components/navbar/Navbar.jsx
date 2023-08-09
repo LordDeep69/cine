@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './navbar.scss';
+import './Navbar.scss';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useLocationDate } from '../../context/LocationDateContext';
 
