@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 const PaymentMovie = () => {
   const { idLocation, idDate, movieNow, ticketNow, selectedLocation, selectedDate, total, setTotal, boleto, setBoletos, numberTicketAdult, setNumberTicketAdult,numberTicketChildren, setNumberTicketChildren, numberTicketOldman, setNumberTicketOldman } = useLocationDate();
 
+
   const adultTicketPrice = 71;
   const childrenTicketPrice = 56;
   const oldmanTicketPrice = 56;

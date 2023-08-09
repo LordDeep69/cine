@@ -4,11 +4,26 @@ import './home.scss';
 import Movie from '../../components/movie/Movie';
 import { getMovies, getMovie } from '../../services/movies';
 import { movieFilter } from '../../services/filterIdMovie';
+import { useLocationDate } from '../../context/LocationDateContext';
 
 const Home = () => {
   const {idCategorie} = useParams();
   const navigate = useNavigate();
   const [movieInfo, setMovieInfo] = useState([]);
+
+
+  const {setNumberTicketChildren,setNumberTicketOldman, setSelectedSeats, setCardName  , setCardNumber, setExpirationDate,setCVV, setNumberTicketAdult} = useLocationDate();
+
+  setNumberTicketAdult(0);
+  setNumberTicketChildren(0);
+  setNumberTicketOldman(0);
+  setSelectedSeats([]);
+  setCardName('');
+  setCardNumber('');
+  setExpirationDate('');
+  setCVV('');
+
+
 
   const getAllMovie = async () => {
     try {
@@ -41,7 +56,7 @@ const Home = () => {
       );
 
       setMovieInfo(movieDetails);
-      console.log(movieInfo);
+
     } catch (error) {
       console.error('Error fetching movie data:', error);
     }
@@ -49,10 +64,8 @@ const Home = () => {
 
   useEffect(() => {
     getAllMovie();
-    console.log(movieInfo);
   }, [idCategorie]);
 
-  console.log(movieInfo);
 
   return (
     <section className='carteleraMovies'>
