@@ -5,6 +5,7 @@ import Header from '../components/header/Header';
 import MovieDetail from '../pages/movieDetail/MovieDetail';
 import PaymentMovie from '../pages/paymentMovie/PaymentMovie';
 import { LocationDateProvider } from '../context/LocationDateContext';
+import SeatsSlect from '../pages/seatsSelect/SeatsSlect';
 
 const Router = () => {
   return (
@@ -20,7 +21,10 @@ const Router = () => {
                   <Route path='Detail' element={<MovieDetail/>}/>
                   <Route path='Payment' element={<PaymentMovie/>}/>
                   <Route path='Category/:idCategorie' element={<Home/>}/>
-                  <Route path='Movie/:idMovie' element={<MovieDetail/>}/>       
+                  <Route path='Movie/:idMovie' element={<MovieDetail/>}/>
+                  <Route path='Seat' element={<SeatsSlect/>}/>
+   
+                      
                 </Route>
               
 

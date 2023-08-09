@@ -1,0 +1,120 @@
+
+.selectSeats
+{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+
+
+    &__info
+    {
+        width: 80%;
+        height: 15%;
+        display: flex;
+        flex-direction: column;
+        gap: 0.8vw;
+        .seatsTitle 
+        {
+            font-family: Roboto; /* Body */
+            font-size: 24px; 
+            line-height: 36px; 
+            color: #171A1FFF; /* neutral-900 */
+        }
+
+        .seatsInfo 
+        {
+            font-family: Roboto; /* Body */
+            font-size: 18px; 
+            line-height: 28px; 
+            color: #303236FF; 
+        }
+
+        .options
+        {
+            display: flex;
+            gap: 40px;
+
+            .option
+            {
+                display: flex;
+                align-content: center;
+                align-items: center;
+                gap: 5px;
+
+                .material-symbols-outlined {
+                    width: 38px; 
+                    height: 38px; 
+                    fill: #FCB831FF; /* warning-500 */
+                    
+                        position: relative;
+                        font-family: 'Material Symbols Outlined';
+                        font-size: 30px; /* Ajusta el tamaño del ícono según tu diseño */
+                        color: transparent; /* Hace el texto transparente para ocultarlo */
+                
+                        &.yellow 
+                        {                /* Agrega el estilo de contorno para simular el ícono */
+                            text-shadow: 
+                            -1px -1px 0 yellow,
+                            1px -1px 0 yellow,
+                            -1px 1px 0 yellow,
+                            1px 1px 0 yellow;
+                        }  
+                        &.red 
+                        {                /* Agrega el estilo de contorno para simular el ícono */
+                            text-shadow: 
+                            -1px -1px 0 red,
+                            1px -1px 0 red,
+                            -1px 1px 0 red,
+                            1px 1px 0 red;
+                        }    
+                        &.blue 
+                        {                /* Agrega el estilo de contorno para simular el ícono */
+                            text-shadow: 
+                            -1px -1px 0 blue,
+                            1px -1px 0 blue,
+                            -1px 1px 0 blue,
+                            1px 1px 0 blue;
+                        }          
+                      
+                
+                
+                
+                      }
+            }
+        }
+
+
+    }
+
+    &__select
+    {
+        background-color: cadetblue;
+        width: 80%;
+        height: 75%;
+        margin-top: 7vw;
+        display: flex;
+
+    }
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+      
+
+      
+      
+
+
+  

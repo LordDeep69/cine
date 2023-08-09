@@ -1,0 +1,57 @@
+.typeSeats
+{
+    position: relative;
+    font-family: 'Material Symbols Outlined';
+    font-size: 24px; /* Ajusta el tamaño del ícono según tu diseño */
+    color: transparent; /* Hace el texto transparente para ocultarlo */
+
+    .material-symbols-outlined {
+        width: 38px; 
+        height: 38px; 
+        fill: #FCB831FF; /* warning-500 */
+        
+            position: relative;
+            font-family: 'Material Symbols Outlined';
+            font-size: 30px; /* Ajusta el tamaño del ícono según tu diseño */
+            color: transparent; /* Hace el texto transparente para ocultarlo */
+    
+            &.yellow 
+            {                /* Agrega el estilo de contorno para simular el ícono */
+                text-shadow: 
+                -1px -1px 0 yellow,
+                1px -1px 0 yellow,
+                -1px 1px 0 yellow,
+                1px 1px 0 yellow;
+            }  
+            &.red 
+            {                /* Agrega el estilo de contorno para simular el ícono */
+                text-shadow: 
+                -1px -1px 0 red,
+                1px -1px 0 red,
+                -1px 1px 0 red,
+                1px 1px 0 red;
+            }    
+            &.blue 
+            {                /* Agrega el estilo de contorno para simular el ícono */
+                text-shadow: 
+                -1px -1px 0 blue,
+                1px -1px 0 blue,
+                -1px 1px 0 blue,
+                1px 1px 0 blue;
+            }          
+          
+    
+    
+    
+          }
+
+    .number {
+        position: absolute;
+        top: 0.9vw;
+        left: 1vw;
+        transform: translate(-50%, -50%);
+        font-size: 10px; /* Ajusta el tamaño del número según tu diseño */
+        color: black; /* Cambia el color del número */
+      }     
+}
+
