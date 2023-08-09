@@ -5,7 +5,7 @@ import { useLocationDate } from '../../context/LocationDateContext';
 
 const Navbar = () => {
 
-
+ 
   const { selectedLocation, setSelectedLocation, selectedDate, setSelectedDate, setIdLocation, setIdDate } = useLocationDate(); // Usa el hook del contexto
   const [isLocationOptionsOpen, setLocationOptionsOpen] = useState(false); // Agrega esta línea
 
