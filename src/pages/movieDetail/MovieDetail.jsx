@@ -6,7 +6,7 @@ import { useLocationDate } from '../../context/LocationDateContext';
 import { getVideoMovie } from '../../services/getVideoMovie';
 
 const MovieDetail = () => {
-  const { idLocation, idDate, movieNow, selectedDate, selectedLocation, setTicketNow, setMovieNow} = useLocationDate();
+  const { idLocation, idDate, movieNow, selectedDate, selectedLocation, setTicketNow, setMovieNow, setSeatNow, setIdRoom} = useLocationDate();
   const { idMovie } = useParams();
   const [desiredRoomTimes, setDesiredRoomTimes] = useState([]);
   const [videoMovie, setVideoMovie] = useState("");
@@ -34,7 +34,12 @@ const MovieDetail = () => {
               console.log('TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT');
               console.log('TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT');
               console.log('TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT');
-              console.log(desiredRoom.times[1].seats);
+              console.log(desiredRoom.times[0].seats);
+              setSeatNow(desiredRoom.times[0].seats);
+              
+              desiredRoom.times[0].seats.B=[3, 5];
+              setSeatNow(desiredRoom.times[0].seats);
+              setIdRoom(desiredRoom.id);
               console.log('TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT');
               console.log('TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT');
               console.log('TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT');

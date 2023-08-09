@@ -4,33 +4,38 @@ import { useLocationDate } from '../../context/LocationDateContext';
 import { useNavigate } from 'react-router-dom';
 
 const PaymentMovie = () => {
-  const { idLocation, idDate, movieNow, ticketNow, selectedLocation, selectedDate, total, setTotal } = useLocationDate();
+  const { idLocation, idDate, movieNow, ticketNow, selectedLocation, selectedDate, total, setTotal, boleto, setBoletos, numberTicketAdult, setNumberTicketAdult,numberTicketChildren, setNumberTicketChildren, numberTicketOldman, setNumberTicketOldman } = useLocationDate();
 
   const adultTicketPrice = 71;
   const childrenTicketPrice = 56;
   const oldmanTicketPrice = 56;
 
-  const [numberTicketAdult, setNumberTicketAdult] = useState(0);
-  const [numberTicketChildren, setNumberTicketChildren] = useState(0);
-  const [numberTicketOldman, setNumberTicketOldman] = useState(0);
+
 
   const handleTicketIncrement = (type) => {
     if (type === 'adult') {
       setNumberTicketAdult(numberTicketAdult + 1);
+      setBoletos(boleto+1);
     } else if (type === 'children') {
       setNumberTicketChildren(numberTicketChildren + 1);
+      setBoletos(boleto+1);
     } else if (type === 'oldman') {
       setNumberTicketOldman(numberTicketOldman + 1);
+      setBoletos(boleto+1);
     }
   };
 
   const handleTicketDecrement = (type) => {
+
     if (type === 'adult' && numberTicketAdult > 0) {
       setNumberTicketAdult(numberTicketAdult - 1);
+      setBoletos(boleto-1);
     } else if (type === 'children' && numberTicketChildren > 0) {
       setNumberTicketChildren(numberTicketChildren - 1);
+      setBoletos(boleto-1);
     } else if (type === 'oldman' && numberTicketOldman > 0) {
       setNumberTicketOldman(numberTicketOldman - 1);
+      setBoletos(boleto-1);
     }
   };
 
@@ -99,6 +104,7 @@ const PaymentMovie = () => {
             <span><b>Complejo</b>: {selectedLocation}</span>
             <span><b>Fecha</b>: {selectedDate}</span>
             <span><b>Función</b>: {ticketNow.name}</span>
+
           </div>
         </div>
         <p className="resumen__p">Se realizará un cargo por servicio por cada boleto dentro de la orden.</p>
