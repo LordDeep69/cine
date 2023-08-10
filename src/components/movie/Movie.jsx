@@ -7,15 +7,18 @@ const Movie = ({ image, title, titleEnglish, estreno, time, genre, id, descripti
   const genreNames = genre.map((item) => item.name).join(' ');
   const genreNamesData = genre.map((item) => item.name).join('  ');
   const imageComplete = `https://image.tmdb.org/t/p/original/${image}`;
-  const {idLocation, idDate, setMovieNow } = useLocationDate(); // Usa el hook del contexto
+  const {idLocation, idDate, setMovieNow, isLoggedIn, setIsLoggedIn } = useLocationDate(); // Usa el hook del contexto
+
+
+
   
 
 
   const navigate = useNavigate();
 
-  const handleClickDetailMovie = (id) => 
+  const handleClickDetailMovie = (id, idFilm) => 
     {        
-        if (idLocation && idDate)
+        if (idLocation && idDate )
         {
             
             navigate(id);
@@ -31,12 +34,24 @@ const Movie = ({ image, title, titleEnglish, estreno, time, genre, id, descripti
 
 
         }
+        if (isLoggedIn) 
+        {
+          navigate('/MovieEdit');
+
+          setMovieNow({
+
+             idFilm: idFilm , image: imageComplete,title:title, titleEnglish:titleEnglish, estreno:estreno, time:time, genre: genreNamesData , id:id, description:description
+
+          })
+        }
+
+        
 
     } 
 
 
   return (
-    <article  onClick={() => handleClickDetailMovie(`/Movie/${id}`)}  className='infoMovie'>
+    <article  onClick={() => handleClickDetailMovie(`/Movie/${id}`, id)}  className='infoMovie'>
       <figure>
         <img className='infoMovie__img' src={imageComplete} alt="movieImage"  />
       </figure>

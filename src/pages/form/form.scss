@@ -12,3 +12,25 @@
 
 }
 
+.resumen
+{
+
+  &__title
+  {
+      &.seta
+      {
+          font-size: 2.2vw;
+      }
+  }
+
+  &__p
+  {
+      &.seta
+      {
+          font-size: 1.5vw;
+          padding-top: 4.5vw;
+      }
+  }
+
+}
+

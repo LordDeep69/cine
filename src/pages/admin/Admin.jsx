@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import './admin.scss';
 import getAdmin from '../../services/getAdmin';
-
+import { useNavigate } from 'react-router-dom';
+import { useLocationDate } from '../../context/LocationDateContext';
 
 const Admin = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const { isLoggedIn, setIsLoggedIn } = useLocationDate();
+
   const [adminData, setAdminData] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchAdminData = async () => {
@@ -22,13 +25,24 @@ const Admin = () => {
     fetchAdminData();
   }, []);
 
+  useEffect(() => {
+    if (isLoggedIn) {
+      console.log('+++++');
+      console.log(isLoggedIn);
+      navigate('/HomeAdmin')
+      console.log('+++++');
+
+    }
+  }, [isLoggedIn, navigate]);
+
   const handleLogin = () => {
-    if (adminData && adminData.correo === email && adminData.password === password) {
+    if (adminData && adminData[0].correo === email && adminData[0].password === password) {
       console.log('Sí es administrador');
       setIsLoggedIn(true);
+
+
     } else {
       console.log('No es administrador');
-      setIsLoggedIn(false);
     }
   };
 

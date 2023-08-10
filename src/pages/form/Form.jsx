@@ -104,7 +104,7 @@ const Form = () => {
                 
             </section>
             <section className="resumen">
-            <h4 className="resumen__title">Resumen de Compra</h4>
+            <h4 className="resumen__title seta">Resumen de Compra</h4>
             <div className="resumen__data">
                 <figure className="figure">
                 <img className="image" src={movieNow.image} alt="POSTER MOVIE" />
@@ -123,7 +123,7 @@ const Form = () => {
 
                 </div>
             </div>
-            <p className="resumen__p">Se realizará un cargo por servicio por cada boleto dentro de la orden.</p>
+            <p className="resumen__p seta">Se realizará un cargo por servicio por cada boleto dentro de la orden.</p>
             <div className="total">
                 <span className="resumen__total">Total(IVA INCLUIDO):</span>
                 <b>${total}</b>
