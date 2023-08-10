@@ -9,6 +9,7 @@ import SeatsSlect from '../pages/seatsSelect/SeatsSlect';
 import Form from '../pages/form/Form';
 import Succesful from '../pages/succesful/Succesful';
 import QR from '../pages/pageQR/QR';
+import Admin from '../pages/admin/Admin';
 
 const Router = () => {
   return (
@@ -29,6 +30,8 @@ const Router = () => {
                   <Route path='Form' element={<Form/>}/>
                   <Route path='Succesful' element={<Succesful/>}/>
                   <Route path='QR' element={<QR/>}/>
+                  <Route path='Admin' element={<Admin/>}/>
+
 
 
 

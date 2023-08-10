@@ -2,22 +2,67 @@ import React from 'react'
 import './succesful.scss'
 import { useNavigate } from 'react-router-dom';
 import { useLocationDate } from '../../context/LocationDateContext';
+import { upDateServer } from '../../services/upDateServer';
 
 
 const Succesful = () => {
 
 
         
-    const { seatNow, setSeatNow, movieNow, ticketNow, selectedLocation, selectedDate, total, boleto, setBoletos, idRoom, numberTicketAdult, numberTicketChildren, numberTicketOldman, beforenewSeats, setBeforeNewSeats, selectedSeats, setSelectedSeats,email, setEmail,cardName, setCardName,  cardNumber, setCardNumber,  expirationDate, setExpirationDate, cvv, setCVV } = useLocationDate();
+    const {movieNewID, idDate, idLocation, json, setJson, seatNow, setSeatNow, movieNow, ticketNow, selectedLocation, selectedDate, total, boleto, setBoletos, idRoom, numberTicketAdult, numberTicketChildren, numberTicketOldman, beforenewSeats, setBeforeNewSeats, selectedSeats, setSelectedSeats,email, setEmail,cardName, setCardName,  cardNumber, setCardNumber,  expirationDate, setExpirationDate, cvv, setCVV } = useLocationDate();
     const navigate = useNavigate();
 
 
-    const handleNextClick = () => {
+    const handleNextClick = () => 
+    {
+        const newState = {...json};
+        const dateId = idDate;
+        const theaterId =idLocation;
+        const roomId = 1;
+        const timeId = ticketNow.time;
+
+        console.log(dateId);
+        console.log(theaterId);
+        console.log(roomId);
+        console.log(timeId);
+
+        newState.dates = newState.dates.map(date => {
+            if (date.id === dateId) {
+              date.theaters = date.theaters.map(theater => {
+                if (theater.id === theaterId) {
+                  theater.rooms = theater.rooms.map(room => {
+                    if (room.id === roomId) {
+                      room.times = room.times.map(time => {
+                        if (time.id === timeId) {
+                          // Paso 3: Realiza la modificación en la copia del estado
+                          time.seats = beforenewSeats;
+                        }
+                        return time;
+                      });
+                    }
+                    return room;
+                  });
+                }
+                return theater;
+              });
+            }
+            return date;
+          });
+
+
+          setJson(newState);
+          console.log(json);
+          console.log(movieNewID);
+          
+          upDateServer(movieNewID, json);
+
         
 
         navigate('/QR')
 
       };
+
+
 
 
 

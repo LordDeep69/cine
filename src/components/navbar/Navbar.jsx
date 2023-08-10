@@ -4,6 +4,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { useLocationDate } from '../../context/LocationDateContext';
 
 const Navbar = () => {
+  
 
   
   const { selectedLocation, setSelectedLocation, selectedDate, setSelectedDate, setIdLocation, setIdDate } = useLocationDate(); // Usa el hook del contexto
@@ -82,6 +83,10 @@ const Navbar = () => {
   };
 
   const navigate = useNavigate();
+  const handleClickAdmin = () => 
+  {
+    navigate('/Admin');
+  };
   const handleClickCategory = (route) => 
   {
     navigate(route);
@@ -181,7 +186,7 @@ const Navbar = () => {
       </div>
 
       <div>
-        <figure  className='figureUser'>
+        <figure onClick={() => handleClickAdmin()} className='figureUser'>
           <img className = 'imgUser' src='https://www.pngkit.com/png/full/88-885453_login-white-on-clear-user-icon.png' alt="user" />
         </figure>
       </div>

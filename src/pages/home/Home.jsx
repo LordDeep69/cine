@@ -7,23 +7,31 @@ import { movieFilter } from '../../services/filterIdMovie';
 import { useLocationDate } from '../../context/LocationDateContext';
 
 const Home = () => {
+
+  const {setNumberTicketAdult, setNumberTicketChildren, setNumberTicketOldman, setBoletos, selectedSeats, setSelectedSeats, email, setEmail,cardName, setCardName,  cardNumber, setCardNumber,  expirationDate, setExpirationDate, cvv, setCVV} = useLocationDate();
+
+
+  
   const {idCategorie} = useParams();
   const navigate = useNavigate();
   const [movieInfo, setMovieInfo] = useState([]);
 
+  const initializeGlobalStates = () => {
+    setNumberTicketAdult(0);
+    setNumberTicketChildren(0);
+    setNumberTicketOldman(0);
+    setBoletos(0);
+    setEmail('');
+    setCardName('');
+    setCardNumber('');
+    setExpirationDate('');
+    setCVV('');
+    setSelectedSeats([]);
+  };
 
-  const {setNumberTicketChildren,setNumberTicketOldman, setSelectedSeats, setCardName  , setCardNumber, setExpirationDate,setCVV, setNumberTicketAdult} = useLocationDate();
-
-  setNumberTicketAdult(0);
-  setNumberTicketChildren(0);
-  setNumberTicketOldman(0);
-  setSelectedSeats([]);
-  setCardName('');
-  setCardNumber('');
-  setExpirationDate('');
-  setCVV('');
-
-
+  React.useEffect(() => {
+    initializeGlobalStates();
+  }, []);
 
   const getAllMovie = async () => {
     try {
