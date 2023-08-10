@@ -12,6 +12,9 @@ export const LocationDateProvider = ({ children }) => {
   const [selectedDate, setSelectedDate] = useState('');
   const [idLocation, setIdLocation] = useState('');
   const [idDate, setIdDate] = useState('');
+  const [movieNewID, setMovieNewID] = useState('');
+  const [finalJson, setFinalJson] = useState('');
+  const [json, setJson] = useState('');
   const [movieNow, setMovieNow ] = useState({});
   const [ticketNow, setTicketNow] = useState({});
   const [idRoom, setIdRoom] = useState(0);
@@ -34,7 +37,7 @@ export const LocationDateProvider = ({ children }) => {
 
   return (
     <LocationDateContext.Provider
-      value={{ selectedLocation, setSelectedLocation, selectedDate, setSelectedDate, idLocation, setIdLocation, idDate, setIdDate, movieNow, setMovieNow, ticketNow, setTicketNow, seatNow, setSeatNow, total, setTotal, boleto, setBoletos, numberTicketAdult, setNumberTicketAdult,numberTicketChildren, setNumberTicketChildren, numberTicketOldman, setNumberTicketOldman, idRoom, setIdRoom, beforenewSeats, setBeforeNewSeats, selectedSeats, setSelectedSeats, email, setEmail,cardName, setCardName,  cardNumber, setCardNumber,  expirationDate, setExpirationDate, cvv, setCVV}}
+      value={{ selectedLocation, setSelectedLocation, selectedDate, setSelectedDate, idLocation, setIdLocation, idDate, setIdDate, movieNow, setMovieNow, ticketNow, setTicketNow, seatNow, setSeatNow, total, setTotal, boleto, setBoletos, numberTicketAdult, setNumberTicketAdult,numberTicketChildren, setNumberTicketChildren, numberTicketOldman, setNumberTicketOldman, idRoom, setIdRoom, beforenewSeats, setBeforeNewSeats, selectedSeats, setSelectedSeats, email, setEmail,cardName, setCardName,  cardNumber, setCardNumber,  expirationDate, setExpirationDate, cvv, setCVV, json, setJson, finalJson, setFinalJson, movieNewID, setMovieNewID}}
     >
       {children}
     </LocationDateContext.Provider>

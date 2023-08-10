@@ -5,15 +5,19 @@ import { useNavigate } from 'react-router-dom';
 
 const Form = () => {
 
-    const { seatNow, setSeatNow, movieNow, ticketNow, selectedLocation, selectedDate, total, boleto, setBoletos, idRoom, numberTicketAdult, numberTicketChildren, numberTicketOldman, beforenewSeats, setBeforeNewSeats, selectedSeats, setSelectedSeats,email, setEmail,cardName, setCardName,  cardNumber, setCardNumber,  expirationDate, setExpirationDate, cvv, setCVV } = useLocationDate();
+    const {setJson, json, seatNow, setSeatNow, movieNow, ticketNow, selectedLocation, selectedDate, total, boleto, setBoletos, idRoom, numberTicketAdult, numberTicketChildren, numberTicketOldman, beforenewSeats, setBeforeNewSeats, selectedSeats, setSelectedSeats,email, setEmail,cardName, setCardName,  cardNumber, setCardNumber,  expirationDate, setExpirationDate, cvv, setCVV } = useLocationDate();
     const navigate = useNavigate();
     
 
     const handleNextClick = () => {
         if (email && cardName && cardNumber && expirationDate && cvv) {  // Navega solo si al menos un ticket ha sido seleccionado
+
+          
         
+            
 
 
+            console.log(beforenewSeats);
             navigate('/Succesful')
 
               

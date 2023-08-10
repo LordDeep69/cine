@@ -6,7 +6,7 @@ import { useLocationDate } from '../../context/LocationDateContext';
 import { getVideoMovie } from '../../services/getVideoMovie';
 
 const MovieDetail = () => {
-  const { idLocation, idDate, movieNow, selectedDate, selectedLocation, setTicketNow, setMovieNow, setSeatNow, setIdRoom} = useLocationDate();
+  const {setMovieNewID, setJson, idLocation, idDate, movieNow, selectedDate, selectedLocation, setTicketNow, setMovieNow, setSeatNow, setIdRoom} = useLocationDate();
   const { idMovie } = useParams();
   const [desiredRoomTimes, setDesiredRoomTimes] = useState([]);
   const [videoMovie, setVideoMovie] = useState("");
@@ -18,8 +18,10 @@ const MovieDetail = () => {
   useEffect(() => {
     const getData = async () => {
       const data = await getInfoTheater();
-      const desiredMovie = data.find((movie) => movie.id == idMovie);
+      setMovieNewID(idMovie);
 
+      const desiredMovie = data.find((movie) => movie.id == idMovie);
+      setJson(desiredMovie);
       if (desiredMovie) {
         const desiredDate = desiredMovie.dates.find((date) => date.id === idDate);
 
@@ -37,7 +39,7 @@ const MovieDetail = () => {
               console.log(desiredRoom.times[0].seats);
               setSeatNow(desiredRoom.times[0].seats);
               
-              desiredRoom.times[0].seats.B=[3, 5];
+              // desiredRoom.times[0].seats.B=[3, 5];
               setSeatNow(desiredRoom.times[0].seats);
               setIdRoom(desiredRoom.id);
               console.log('TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT');
