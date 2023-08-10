@@ -1,12 +1,13 @@
+
+import './homeAdmin.scss'
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import './home.scss';
 import Movie from '../../components/movie/Movie';
 import { getMovies, getMovie } from '../../services/movies';
 import { movieFilter } from '../../services/filterIdMovie';
 import { useLocationDate } from '../../context/LocationDateContext';
 
-const Home = () => {
+const HomeAdmin = () => {
 
   const {isLoggedIn, setIsLoggedIn,setNumberTicketAdult, setNumberTicketChildren, setNumberTicketOldman, setBoletos, selectedSeats, setSelectedSeats, email, setEmail,cardName, setCardName,  cardNumber, setCardNumber,  expirationDate, setExpirationDate, cvv, setCVV} = useLocationDate();
 
@@ -102,4 +103,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default HomeAdmin;

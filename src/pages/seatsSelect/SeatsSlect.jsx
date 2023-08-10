@@ -18,7 +18,7 @@ const SeatsSlect = () => {
 
     console.log(seatNow)
     const handleNextClick = () => {
-        if (total > 0) {  // Navega solo si al menos un ticket ha sido seleccionado
+        if (boleto == 0) {  // Navega solo si al menos un ticket ha sido seleccionado
         
               setBeforeNewSeats(newSeats);
               
@@ -211,7 +211,7 @@ const SeatsSlect = () => {
                 
             </section>
             <section className="resumen">
-            <h4 className="resumen__title">Resumen de Compra</h4>
+            <h4 className="resumen__title seta">Resumen de Compra</h4>
             <div className="resumen__data">
                 <figure className="figure">
                 <img className="image" src={movieNow.image} alt="POSTER MOVIE" />
@@ -230,7 +230,7 @@ const SeatsSlect = () => {
 
                 </div>
             </div>
-            <p className="resumen__p">Se realizará un cargo por servicio por cada boleto dentro de la orden.</p>
+            <p className="resumen__p seta">Se realizará un cargo por servicio por cada boleto dentro de la orden.</p>
             <div className="total">
                 <span className="resumen__total">Total(IVA INCLUIDO):</span>
                 <b>${total}</b>

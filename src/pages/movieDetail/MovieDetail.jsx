@@ -6,7 +6,7 @@ import { useLocationDate } from '../../context/LocationDateContext';
 import { getVideoMovie } from '../../services/getVideoMovie';
 
 const MovieDetail = () => {
-  const {setMovieNewID, setJson, idLocation, idDate, movieNow, selectedDate, selectedLocation, setTicketNow, setMovieNow, setSeatNow, setIdRoom} = useLocationDate();
+  const {setMovieNewID, json, setJson, idLocation, idDate, movieNow, selectedDate, selectedLocation, setTicketNow, setMovieNow, setSeatNow, setIdRoom, idRoom} = useLocationDate();
   const { idMovie } = useParams();
   const [desiredRoomTimes, setDesiredRoomTimes] = useState([]);
   const [videoMovie, setVideoMovie] = useState("");
@@ -21,6 +21,9 @@ const MovieDetail = () => {
       setMovieNewID(idMovie);
 
       const desiredMovie = data.find((movie) => movie.id == idMovie);
+      console.log('++++++++++++++++++++++++++++++');
+      console.log('++++++++++++++++++++++++++++++');
+
       setJson(desiredMovie);
       if (desiredMovie) {
         const desiredDate = desiredMovie.dates.find((date) => date.id === idDate);
@@ -37,10 +40,7 @@ const MovieDetail = () => {
               console.log('TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT');
               console.log('TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT');
               console.log(desiredRoom.times[0].seats);
-              setSeatNow(desiredRoom.times[0].seats);
-              
-              // desiredRoom.times[0].seats.B=[3, 5];
-              setSeatNow(desiredRoom.times[0].seats);
+
               setIdRoom(desiredRoom.id);
               console.log('TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT');
               console.log('TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT');
@@ -92,6 +92,12 @@ const MovieDetail = () => {
 
   const handleClickPaymet = () => 
   {
+    console.log(json);
+
+   console.log(json.dates[idDate-1].theaters[idLocation-1].rooms[0].times[idRoom].seats);
+
+    setSeatNow(json.dates[idDate-1].theaters[idLocation-1].rooms[0].times[idRoom].seats);
+
 
     navigate('/Payment');
   }

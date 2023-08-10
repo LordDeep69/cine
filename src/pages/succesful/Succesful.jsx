@@ -97,7 +97,7 @@ const Succesful = () => {
             Fecha 
         </h5>
         <h6>
-            Agosto 20 del 2023
+            {selectedDate}
         </h6>
     </span>
     <span>
@@ -119,7 +119,7 @@ const Succesful = () => {
 </section>
 
 <section className="resumen">
-    <h4 className="resumen__title">Resumen de Compra</h4>
+    <h4 className="resumen__title seta">Resumen de Compra</h4>
     <div className="resumen__data">
         <figure className="figure">
         <img className="image" src={movieNow.image} alt="POSTER MOVIE" />
@@ -138,7 +138,7 @@ const Succesful = () => {
 
         </div>
     </div>
-    <p className="resumen__p">Se realizará un cargo por servicio por cada boleto dentro de la orden.</p>
+    <p className="resumen__p seta">Se realizará un cargo por servicio por cada boleto dentro de la orden.</p>
     <div className="total">
         <span className="resumen__total">Total(IVA INCLUIDO):</span>
         <b>${total}</b>

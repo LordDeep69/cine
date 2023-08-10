@@ -10,6 +10,8 @@ import Form from '../pages/form/Form';
 import Succesful from '../pages/succesful/Succesful';
 import QR from '../pages/pageQR/QR';
 import Admin from '../pages/admin/Admin';
+import HomeAdmin from '../pages/homeAdmin/HomeAdmin';
+import MovieEdit from '../pages/movieEdit/MovieEdit';
 
 const Router = () => {
   return (
@@ -31,6 +33,10 @@ const Router = () => {
                   <Route path='Succesful' element={<Succesful/>}/>
                   <Route path='QR' element={<QR/>}/>
                   <Route path='Admin' element={<Admin/>}/>
+                  <Route path='HomeAdmin' element={<HomeAdmin/>}/>
+                  <Route path='MovieEdit' element={<MovieEdit/>}/>
+
+
 
 
 

@@ -32,12 +32,13 @@ export const LocationDateProvider = ({ children }) => {
   const [cardNumber, setCardNumber] = useState('');
   const [expirationDate, setExpirationDate] = useState('');
   const [cvv, setCVV] = useState('');
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
 
 
   return (
     <LocationDateContext.Provider
-      value={{ selectedLocation, setSelectedLocation, selectedDate, setSelectedDate, idLocation, setIdLocation, idDate, setIdDate, movieNow, setMovieNow, ticketNow, setTicketNow, seatNow, setSeatNow, total, setTotal, boleto, setBoletos, numberTicketAdult, setNumberTicketAdult,numberTicketChildren, setNumberTicketChildren, numberTicketOldman, setNumberTicketOldman, idRoom, setIdRoom, beforenewSeats, setBeforeNewSeats, selectedSeats, setSelectedSeats, email, setEmail,cardName, setCardName,  cardNumber, setCardNumber,  expirationDate, setExpirationDate, cvv, setCVV, json, setJson, finalJson, setFinalJson, movieNewID, setMovieNewID}}
+      value={{isLoggedIn, setIsLoggedIn, selectedLocation, setSelectedLocation, selectedDate, setSelectedDate, idLocation, setIdLocation, idDate, setIdDate, movieNow, setMovieNow, ticketNow, setTicketNow, seatNow, setSeatNow, total, setTotal, boleto, setBoletos, numberTicketAdult, setNumberTicketAdult,numberTicketChildren, setNumberTicketChildren, numberTicketOldman, setNumberTicketOldman, idRoom, setIdRoom, beforenewSeats, setBeforeNewSeats, selectedSeats, setSelectedSeats, email, setEmail,cardName, setCardName,  cardNumber, setCardNumber,  expirationDate, setExpirationDate, cvv, setCVV, json, setJson, finalJson, setFinalJson, movieNewID, setMovieNewID}}
     >
       {children}
     </LocationDateContext.Provider>
